@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme tokens */
+@theme {
+  /* Brand colors (map onto bg-brand, text-brand, etc.) */
+  /* یه نارنجی-مرجانی شیک */
+  --color-brand: oklch(72% 0.16 45);
+  --color-brand-fg: oklch(17% 0.03 45);
+  --color-brand-dark: oklch(58% 0.16 45);
+
+  /* Radii become rounded-xl / rounded-2xl utilities */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.35rem;
+}
+
+/* Light theme surface tokens (for HSL-based surfaces) */
+:root {
+  /* پس‌زمینه خیلی روشن با ته‌مایه بژ */
+  --bg: 28 45% 98%;
+  --fg: 24 30% 14%;
+  --muted: 26 12% 42%;
+  /* کارت کم‌یه‌کم شیشه‌ای/سفید */
+  --card: 0 0% 100%;
+  /* رنگ خطوط/هایلایت به سمت کورال */
+  --ring: 18 90% 65%;
+}
+
+/* Dark theme overrides */
+.dark {
+  /* داک مود گرمیه، نه بنفش/آبی */
+  --bg: 18 15% 10%;
+  --fg: 30 30% 96%;
+  --muted: 22 8% 72%;
+  --card: 18 14% 14%;
+  --ring: 18 85% 68%;
+}
+
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-[hsl(var(--bg))] text-[hsl(var(--fg))] antialiased;
+    /* یه گرادیان خیلی خفیف پشت زمینه برای حس "سایت دیگه" */
+    background-image: radial-gradient(
+        circle at top,
+        hsla(18, 90%, 85%, 0.35),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 120% 20%,
+        hsla(45, 90%, 90%, 0.35),
+        transparent 45%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    /* از برند ولی ملایم‌تر */
+    @apply bg-brand/20;
+  }
+}
+
+@layer components {
+  /* Page-width wrapper for readable text/content */
+  .container-prose {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card surface */
+  .card {
+    /* کمی شیشه‌ای + حاشیه خیلی روشن */
+    @apply rounded-2xl bg-[hsl(var(--card))]/80 border border-[hsla(18,50%,70%,0.28)] backdrop-blur;
+    /* نرم‌تر از قبلی */
+    @apply shadow-[0_18px_40px_-22px_rgba(15,15,15,0.28)];
+  }
+
+  /* Base button */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
+           transition duration-150
+           ring-1 ring-[hsla(18,40%,55%,0.35)] hover:ring-[hsla(18,65%,50%,0.6)]
+           bg-white/20 dark:bg-white/5
+           hover:-translate-y-[1px] active:translate-y-0;
+  }
+
+  /* Primary / filled button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold
+           transition duration-150
+           bg-brand text-[hsl(var(--color-brand-fg))] 
+           shadow-[0_10px_30px_-16px_rgba(249,115,22,0.9)]
+           hover:brightness-[1.03] hover:-translate-y-[1px]
+           ring-1 ring-[hsla(18,70%,55%,0.7)];
+  }
+
+  /* Ghost / subtle button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium
+           transition
+           bg-[hsla(28,40%,96%,0.35)] dark:bg-white/5
+           hover:bg-[hsla(28,40%,96%,0.85)] dark:hover:bg-white/10
+           ring-1 ring-[hsla(18,35%,70%,0.35)];
+  }
+
+  /* Small pill badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs tracking-tight
+           bg-[hsla(18,78%,92%,0.8)] dark:bg-[hsla(18,50%,50%,0.22)]
+           text-[hsl(var(--fg))] dark:text-white/90
+           ring-1 ring-[hsla(18,50%,70%,0.5)];
+  }
+}
+
+/* Decorative grid background blob */
+.bg-grid {
+  /* رنگ شبکه رو هم گرم کنیم */
+  background-image: radial-gradient(hsl(var(--ring)) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-position: -9px -9px;
+  /* شکل نرم‌تر و پایین‌تر */
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 10%,
+    black 55%,
+    transparent 100%
+  );
+}
