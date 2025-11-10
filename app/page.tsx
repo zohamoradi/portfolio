@@ -13,7 +13,7 @@ import { ReferencesSection } from "@/components/sections/RefrenceSection";
 import { HobbiesSection } from "@/components/sections/HobbiesSection";
 
 export default function Home() {
-  const CV_URL = resume?.links?.cv ?? "/cv.pdf";
+  const CV_URL = resume?.links?.cv ?? "/cv_Moradi.pdf";
   const isExternalCV = typeof CV_URL === "string" && CV_URL.startsWith("http");
 
   const PHOTO_URL = resume?.photo ?? "/me.jpg";

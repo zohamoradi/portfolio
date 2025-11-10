@@ -17,7 +17,7 @@ export const resume: Resume = {
     linkedin: "https://www.linkedin.com/in/zohamoradi",
     website: "https://zohamoradi.info",
     github: "https://github.com/zohamoradi",
-    cv: "/cv.pdf",
+    cv: "/cv_Moradi.pdf",
   },
 
   summary:
@@ -91,9 +91,9 @@ export const resume: Resume = {
   skillGroups: [
     {
       label: "Programming",
-      skills: ["Python", "C++",],
+      skills: ["Python", "C++"],
     },
-   
+
     {
       label: "Data & Optimization",
       skills: [
