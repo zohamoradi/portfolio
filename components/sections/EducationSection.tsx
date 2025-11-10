@@ -7,7 +7,6 @@ import { Timeline } from "@/components/Timeline";
 import { Resume } from "@/types/resume";
 
 export function EducationSection({ resume }: { resume: Resume }) {
-  console.log("VVVVVVVVV", resume);
 
   const educationItems =
     resume?.education?.map((edu) => ({
