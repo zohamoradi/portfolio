@@ -16,10 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zoha Moradi — Frontend Developer",
-  description:
-    "Personal site & portfolio of Zoha Moradi, a frontend developer specialized in React, Next.js, and intelligent software systems.",
-  metadataBase: new URL("https://example.com"),
+  title: "Zoha Moradi",
+  description: "Personal site & portfolio of Zoha Moradi.",
+  metadataBase: new URL("https://zohamoradi.info"),
 };
 const ThemeScript = () => (
   <script
