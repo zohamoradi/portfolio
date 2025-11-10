@@ -22,6 +22,7 @@ export interface Contact {
   email: string;
   phone?: string;
   location?: string;
+  birth: string;
 }
 
 export interface Links {

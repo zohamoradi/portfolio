@@ -63,8 +63,8 @@ export function HeroSection({
             <Image
               src={photo}
               alt={`Portrait of ${fullName}`}
-              width={400}
-              height={400}
+              width={1600}
+              height={1500}
               className="object-cover"
             />
           </div>

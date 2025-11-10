@@ -54,7 +54,11 @@ export function AboutSection({ resume }: { resume: Resume }) {
                   </a>
                 </li>
               ) : null}
-
+              {contact.birth ? (
+                <li>
+                  <strong>Date of Birth:</strong> {contact.birth}
+                </li>
+              ) : null}
               {contact.email ? (
                 <li>
                   <strong>Email:</strong>{" "}
@@ -67,48 +71,11 @@ export function AboutSection({ resume }: { resume: Resume }) {
                 </li>
               ) : null}
 
-              {/* لینک‌ها (اختیاری) */}
-              {links?.linkedin ? (
-                <li>
-                  <strong>LinkedIn:</strong>{" "}
-                  <a
-                    href={links.linkedin}
-                    className="underline decoration-dotted"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {links.linkedin.replace("https://", "")}
-                  </a>
-                </li>
-              ) : null}
+             
 
-              {links?.website ? (
-                <li>
-                  <strong>Website:</strong>{" "}
-                  <a
-                    href={links.website}
-                    className="underline decoration-dotted"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {links.website.replace("https://", "")}
-                  </a>
-                </li>
-              ) : null}
+              
 
-              {links?.cv ? (
-                <li>
-                  <strong>CV:</strong>{" "}
-                  <a
-                    href={links.cv}
-                    className="underline decoration-dotted"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Download
-                  </a>
-                </li>
-              ) : null}
+              
             </ul>
           </Card>
         </motion.div>
